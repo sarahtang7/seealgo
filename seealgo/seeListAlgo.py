@@ -37,10 +37,11 @@ class List:
     def __init__(self):
         file_num = 1
 
-    def visualize(self, func, data):
+    def see(self, func, data):
         List.createViz(data, None)
         data = TrackedArray(data)
-        func(data)
+        if func is not None:
+            func(data)
 
     def createViz(data, index):
         # TODO: add index labels
