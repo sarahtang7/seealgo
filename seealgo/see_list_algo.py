@@ -5,8 +5,6 @@ as it changes throughout a function.
 
 from graphviz import Digraph
 
-FILE_NUM = 1
-
 class TrackedArray(list):
     """
     Tracks changes to a list data structure.
@@ -50,6 +48,8 @@ class List:
     for list data structure.
     """
 
+    filenum = 1
+
     def see(self, func, data):
         """
         Start tracking a given list as
@@ -66,10 +66,8 @@ class List:
         Render graphviz visualization.
         """
 
-        global FILE_NUM
-
-        di_graph = Digraph('List', filename=f'see{FILE_NUM}_.gv')
-        FILE_NUM = FILE_NUM + 1
+        di_graph = Digraph('List', filename=f'see{List.filenum}.gv')
+        List.filenum += 1
         di_graph.attr(rankdir='LR')
 
         # Create nodes for each element in the list
