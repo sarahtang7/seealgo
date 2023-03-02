@@ -17,7 +17,7 @@ def test_initlist():
     viz0 = List()
     viz0.see(None, init_list)
 
-    with open('see1_.gv', 'r', encoding='utf-8') as file:
+    with open('see1.gv', 'r', encoding='utf-8') as file:
         viz_contents = file.read()
 
     with open('outputFiles/initListOutput.txt', 'r', encoding='utf-8') as true_file:
@@ -41,9 +41,9 @@ def test_appendlist():
 
     viz1.see(append_func, list1)
 
-    with open('see2_.gv', 'r', encoding='utf-8') as file:
+    with open('see2.gv', 'r', encoding='utf-8') as file:
         viz_contents1 = file.read()
-    with open('see3_.gv', 'r', encoding='utf-8') as file:
+    with open('see3.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
     with open('outputFiles/appendListOutput1.txt', 'r', encoding='utf-8') as true_file:
@@ -70,9 +70,9 @@ def test_inserttolist():
 
     viz2.see(insert_func, list2)
 
-    with open('see4_.gv', 'r', encoding='utf-8') as file:
+    with open('see4.gv', 'r', encoding='utf-8') as file:
         viz_contents1 = file.read()
-    with open('see5_.gv', 'r', encoding='utf-8') as file:
+    with open('see5.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
     with open('outputFiles/insertListOutput1.txt', 'r', encoding='utf-8') as true_file:
@@ -99,9 +99,9 @@ def test_deletefromlist():
 
     viz3.see(delete_func, list3)
 
-    with open('see6_.gv', 'r', encoding='utf-8') as file:
+    with open('see6.gv', 'r', encoding='utf-8') as file:
         viz_contents1 = file.read()
-    with open('see7_.gv', 'r', encoding='utf-8') as file:
+    with open('see7.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
     with open('outputFiles/deleteListOutput1.txt', 'r', encoding='utf-8') as true_file:
@@ -128,9 +128,9 @@ def test_setlist():
 
     viz4.see(set_func, list4)
 
-    with open('see8_.gv', 'r', encoding='utf-8') as file:
+    with open('see8.gv', 'r', encoding='utf-8') as file:
         viz_contents1 = file.read()
-    with open('see9_.gv', 'r', encoding='utf-8') as file:
+    with open('see9.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
     with open('outputFiles/setListOutput1.txt', 'r', encoding='utf-8') as true_file:
@@ -162,15 +162,15 @@ def test_listintegration():
 
     viz.see(mix_func, lst)
 
-    with open('see10_.gv', 'r', encoding='utf-8') as file:
+    with open('see10.gv', 'r', encoding='utf-8') as file:
         viz_contents1 = file.read()
-    with open('see11_.gv', 'r', encoding='utf-8') as file:
+    with open('see11.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
-    with open('see12_.gv', 'r', encoding='utf-8') as file:
+    with open('see12.gv', 'r', encoding='utf-8') as file:
         viz_contents3 = file.read()
-    with open('see13_.gv', 'r', encoding='utf-8') as file:
+    with open('see13.gv', 'r', encoding='utf-8') as file:
         viz_contents4 = file.read()
-    with open('see14_.gv', 'r', encoding='utf-8') as file:
+    with open('see14.gv', 'r', encoding='utf-8') as file:
         viz_contents5 = file.read()
 
     with open('outputFiles/mixListOutput1.txt', 'r', encoding='utf-8') as true_file:
