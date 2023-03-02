@@ -12,3 +12,9 @@ authors = [{name = "Sarah Tang", email = "sarah.tang@columbia.edu"}]
 description="A Python library to visualize a data structure as it changes throughout a function"
 readme = "README.md"
 requires-python = ">=3.7"
+
+[tool.black]
+color = true
+line-length = 120
+target-version = ['py310']
+skip-string-normalization = true
