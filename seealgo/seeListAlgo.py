@@ -3,6 +3,36 @@ from graphviz import Digraph
 
 file_num = 1
 
+class TrackedArray(list):
+    # TODO: add message to note what changed
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.length = len(self)
+
+    def append(self, value):
+        super().append(value)
+        self.check_length(self.length, True)
+
+    def insert(self, index, value):
+        super().insert(index, value)
+        self.check_length(index, True)
+
+    def remove(self, value):
+        super().remove(value)
+        self.check_length(None, True)
+
+    def __setitem__(self, index, value):
+        super().__setitem__(index, value)
+        self.check_length(index, True)
+
+    def check_length(self, index, invoke):
+        if len(self) != self.length or invoke:
+            self.length = len(self)
+            print("Array Changed")
+            List.createViz(self, index)
+
+
 class List:
     def __init__(self):
         file_num = 1
