@@ -115,3 +115,47 @@ def test_setList():
 
     assert viz_contents1 == true_contents1
     assert viz_contents2 == true_contents2
+
+    
+### INTEGRATION TEST
+
+def test_listIntegration():
+    list = [3, 53, 98, 2, 35, 46, 1]
+    viz = List()
+
+    def mix_func(list):
+        list.remove(2)
+        list.append(-10)
+        list.insert(0, 0)
+        list.__setitem__(4, 1000)
+        return list
+    
+    see_viz = viz.see(mix_func, list)
+
+    with open('see10_.gv', 'r') as file:
+        viz_contents1 = file.read()
+    with open('see11_.gv', 'r') as file:
+        viz_contents2 = file.read()
+    with open('see12_.gv', 'r') as file:
+        viz_contents3 = file.read()
+    with open('see13_.gv', 'r') as file:
+        viz_contents4 = file.read()
+    with open('see14_.gv', 'r') as file:
+        viz_contents5 = file.read()
+
+    with open('outputFiles/mixListOutput1.txt', 'r') as true_file:
+        true_contents1 = true_file.read()
+    with open('outputFiles/mixListOutput2.txt', 'r') as true_file:
+        true_contents2 = true_file.read()
+    with open('outputFiles/mixListOutput3.txt', 'r') as true_file:
+        true_contents3 = true_file.read()
+    with open('outputFiles/mixListOutput4.txt', 'r') as true_file:
+        true_contents4 = true_file.read()
+    with open('outputFiles/mixListOutput5.txt', 'r') as true_file:
+        true_contents5 = true_file.read()
+    
+    assert viz_contents1 == true_contents1
+    assert viz_contents2 == true_contents2
+    assert viz_contents3 == true_contents3
+    assert viz_contents4 == true_contents4
+    assert viz_contents5 == true_contents5
