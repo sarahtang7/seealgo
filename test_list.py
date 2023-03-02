@@ -67,3 +67,27 @@ def test_insertToList():
 
     assert viz_contents1 == true_contents1
     assert viz_contents2 == true_contents2
+
+
+def test_deleteFromList():
+    list3 = [1, 2, 3, 3]
+    viz3 = List()
+
+    def delete_func(list):
+        list.remove(3)
+        return list
+
+    see_viz3 = viz3.see(delete_func, list3)
+
+    with open('see6_.gv', 'r') as file:
+        viz_contents1 = file.read()
+    with open('see7_.gv', 'r') as file:
+        viz_contents2 = file.read()
+
+    with open('outputFiles/deleteListOutput1.txt', 'r') as true_file:
+        true_contents1 = true_file.read()
+    with open('outputFiles/deleteListOutput2.txt', 'r') as true_file:
+        true_contents2 = true_file.read()
+
+    assert viz_contents1 == true_contents1
+    assert viz_contents2 == true_contents2
