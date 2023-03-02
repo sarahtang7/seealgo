@@ -91,3 +91,27 @@ def test_deleteFromList():
 
     assert viz_contents1 == true_contents1
     assert viz_contents2 == true_contents2
+
+
+def test_setList():
+    list4 = [2, 33, 333, 3333]
+    viz4 = List()
+
+    def set_func(list):
+        list.__setitem__(0, 3)
+        return list
+
+    see_viz4 = viz4.see(set_func, list4)
+
+    with open('see8_.gv', 'r') as file:
+        viz_contents1 = file.read()
+    with open('see9_.gv', 'r') as file:
+        viz_contents2 = file.read()
+
+    with open('outputFiles/setListOutput1.txt', 'r') as true_file:
+        true_contents1 = true_file.read()
+    with open('outputFiles/setListOutput2.txt', 'r') as true_file:
+        true_contents2 = true_file.read()
+
+    assert viz_contents1 == true_contents1
+    assert viz_contents2 == true_contents2
