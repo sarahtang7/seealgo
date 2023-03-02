@@ -43,3 +43,27 @@ def test_appendList():
 
     assert viz_contents1 == true_contents1
     assert viz_contents2 == true_contents2
+
+
+def test_insertToList():
+    list2 = [100, 200, 400, 500, 600]
+    viz2 = List()
+
+    def insert_func(list):
+        list.insert(2, 300)
+        return list
+
+    see_viz2 = viz2.see(insert_func, list2)
+
+    with open('see4_.gv', 'r') as file:
+        viz_contents1 = file.read()
+    with open('see5_.gv', 'r') as file:
+        viz_contents2 = file.read()
+
+    with open('outputFiles/insertListOutput1.txt', 'r') as true_file:
+        true_contents1 = true_file.read()
+    with open('outputFiles/insertListOutput2.txt', 'r') as true_file:
+        true_contents2 = true_file.read()
+
+    assert viz_contents1 == true_contents1
+    assert viz_contents2 == true_contents2

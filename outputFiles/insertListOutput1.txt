@@ -1,0 +1,12 @@
+digraph List {
+	rankdir=LR
+	0 [label=100 fillcolor="" style=""]
+	1 [label=200 fillcolor="" style=""]
+	2 [label=400 fillcolor="" style=""]
+	3 [label=500 fillcolor="" style=""]
+	4 [label=600 fillcolor="" style=""]
+	0 -> 1
+	1 -> 2
+	2 -> 3
+	3 -> 4
+}
