@@ -1,0 +1,14 @@
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-scm",
+    "wheel",
+]
+build-backend="setuptools.build_meta"
+
+[project]
+name = "see-algo"
+authors = [{name = "Sarah Tang", email = "sarah.tang@columbia.edu"}]
+description="A Python library to visualize a data structure as it changes throughout a function"
+readme = "README.md"
+requires-python = ">=3.7"
