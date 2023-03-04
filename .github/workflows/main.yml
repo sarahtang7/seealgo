@@ -29,6 +29,9 @@ jobs:
     - name: Format code with Black
       run: black .
       
+    - name: Setup Graphviz
+      uses: ts-graphviz/setup-graphviz@v1
+      
     - name: Test
       run: |
         pytest --cov=./ --cov-report=xml
