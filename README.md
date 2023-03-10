@@ -4,6 +4,7 @@ A Python library to visualize a data structure as it changes throughout a functi
 [![](https://img.shields.io/badge/License-Apache_2.0-pink.svg)](./LICENSE) 
 ![](https://img.shields.io/github/issues/sarahtang7/see-algo)
 ![](https://img.shields.io/codecov/c/github/sarahtang7/see-algo/main?color=lightgreen)
+[![CI](https://github.com/sarahtang7/see-algo/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/sarahtang7/see-algo/actions/workflows/main.yml)
 
 ## Overview
 When writing algorithms, I often find that visualizing the data structures are necessary, but it can be difficult and time-consuming to do so. The goal of the see-algo library is to allow users to visualize a given data structure as it changes in a given function.
