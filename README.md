@@ -32,3 +32,5 @@ def append_to_list(input_list):
 
 visual_list.see(append_to_list, test_list)
 ```
+<img src="./outputFiles/eg_appendlist_before.png" width="400">
+<img src="./outputFiles/eg_appendlist_after.png" width="500">
