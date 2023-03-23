@@ -15,14 +15,14 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with black
-	python -m black --check see-algo setup.py
-	python -m flake8 see-algo setup.py
+	python -m black --check seealgo setup.py
+	python -m flake8 seealgo setup.py
 
 # Alias
 lints: lint
 
 format:  ## run autoformatting with black
-	python -m black see-algo/ setup.py
+	python -m black seealgo/ setup.py
 
 # alias
 fix: format
@@ -34,16 +34,16 @@ check:  ## check assets for packaging
 checks: check
 
 annotate:  ## run type checking
-	python -m mypy ./see-algo
+	python -m mypy ./seealgo
 
 #########
 # TESTS #
 #########
 test: ## clean and run unit tests
-	python -m pytest -v see-algo/tests
+	python -m pytest -v seealgo/tests
 
 coverage:  ## clean and run unit tests with coverage
-	python -m pytest -v see-algo/tests --cov=see-algo --cov-branch --cov-fail-under=75 --cov-report term-missing
+	python -m pytest -v seealgo/tests --cov=seealgo --cov-branch --cov-fail-under=75 --cov-report term-missing
 
 # Alias
 tests: test
