@@ -3,7 +3,7 @@ This file contains unit and integration tests for
 visualizations involving only list data structures.
 """
 
-from ..seealgo.see_list_algo import List
+from seealgo.see_list_algo import List
 
 ### UNIT TESTS
 
