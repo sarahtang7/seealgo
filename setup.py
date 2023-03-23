@@ -1,5 +1,5 @@
 """
-This module contains the setup script for see-algo, as well as
+This module contains the setup script for seealgo, as well as
 specifications for the package name, version, and installation
 requirements.
 """
@@ -7,10 +7,10 @@ requirements.
 from setuptools import setup
 
 setup(
-    name='see-algo',
-    version='1.0',
+    name='seealgo',
+    version='0.1.0',
     description='''A Python library to visualize a
                 data structure as it changes throughout a function''',
-    packages=['see-algo'],
-    install_requires=['graphviz'],
+    packages=['seealgo'],
+    install_requires=['graphviz']
 )
