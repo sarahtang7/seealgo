@@ -1,0 +1,5 @@
+include *.md
+include Makefile
+recursive-include outputFiles *.png
+recursive-include outputFiles *.txt
+recursive-include seealgo *.py
