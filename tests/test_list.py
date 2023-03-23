@@ -5,7 +5,6 @@ visualizations involving only list data structures.
 
 from seealgo.see_list_algo import List
 
-
 ### UNIT TESTS
 
 def test_initlist():
