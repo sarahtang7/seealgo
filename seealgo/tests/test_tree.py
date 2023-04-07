@@ -32,7 +32,7 @@ def test_init_tree():
     with open('tree1.gv', 'r', encoding='utf-8') as file:
         viz_contents = file.read()
 
-    with open('../../outputFiles/initTreeOutput.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/initTreeOutput.txt', 'r', encoding='utf-8') as true_file:
         true_contents = true_file.read()
 
     assert len(viz_contents) == len(true_contents)
@@ -66,9 +66,9 @@ def test_insert_tree():
     with open('tree3.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('../../outputFiles/addTreeOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/addTreeOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('../../outputFiles/addTreeOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/addTreeOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert len(viz_contents1) == len(true_contents1)
@@ -103,9 +103,9 @@ def test_remove_node():
     with open('tree5.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('../../outputFiles/deleteTreeOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/deleteTreeOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('../../outputFiles/deleteTreeOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/deleteTreeOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert len(viz_contents1) == len(true_contents1)
