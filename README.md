@@ -22,6 +22,8 @@ pip install seealgo
 ```
 
 ## Using seealgo
+This is an example of using the List module to visualize appending 5 to a list:
+
 ```python
 from seealgo import List
 
@@ -36,3 +38,30 @@ visual_list.see(append_to_list, test_list)
 ```
 <img src="./outputFiles/eg_appendlist_before.png" width="400">
 <img src="./outputFiles/eg_appendlist_after.png" width="500">
+
+
+This is an example of using the Tree module to visualize adding a leaf node with value 2 to a binary search tree: 
+
+```python
+from seealgo import Tree
+
+visual_tree = Tree()
+
+test_tree = {
+    '8': {
+        '3': {
+            '1': None,
+            '6': None
+        },
+        '10': None
+    }
+}
+
+def insert_func(init_tree):
+    init_tree.add_child(2)
+    return init_tree
+
+visual_tree.see(insert_func, test_tree)
+```
+<img src="./outputFiles/eg_appendtree_before.png" width="250">
+<img src="./outputFiles/eg_appendtree_after.png" width="250">
