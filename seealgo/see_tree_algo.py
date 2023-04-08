@@ -1,6 +1,14 @@
 """
-This file contains visualizes a tree data structure
-as it changes throughout a function.
+
+This module contains the functionality to visualize a binary
+search tree data structure as nodes are inserted and removed.
+
+This involves the following classes:
+    - TreeDS: defines a custom tree data structure
+    - TrackedTree(TreeDS): detects changes made to a given TreeDS
+    data structure and triggers creation of a new visualization for each change
+    - Tree: uses graphviz to construct a node-edge visualization of the tree
+
 """
 
 from graphviz import Digraph
@@ -16,11 +24,13 @@ class TreeDS:
 
     def insert(self, child):
         """
-        Insert a child node into a binary search tree.
+        Inserts a leaf node into a binary search tree.
+
+        Args:
+            child (Any): value of leaf node to be inserted
         """
         dict_form = tracked_tree_to_dict(self)
         added = add_to_bst(dict_form, child)
-        print(added)
 
         new_tree = nested_dict_to_tracked_tree(added)
         self.label = new_tree.label
@@ -29,7 +39,10 @@ class TreeDS:
 
     def remove(self, val):
         """
-        Remove a child node from the tree.
+        Removes a child node from the binary search tree.
+
+        Args:
+            val (Any): value of the node to be removed
         """
         dict_form = tracked_tree_to_dict(self)
         removed = remove_node(dict_form, val)
@@ -41,10 +54,15 @@ class TreeDS:
 
 def nested_dict_to_tracked_tree(tree_dict):
     """
-    Convert from nested dictionary (user input form) to
-    a nested TrackedTree object form.
-    """
+    Helper method that converts a nested dictionary (the user input form of the tree)
+    to a nested TrackedTree object form.
 
+    Args:
+        tree_dict (dict): nested dictionary to be converted to TrackedTree object form
+
+    Returns:
+        The nested TrackedTree object form of the input dictionary.
+    """
     def _recurse(node_dict):
 
         label, children_dict = next(iter(node_dict.items()))
@@ -60,10 +78,15 @@ def nested_dict_to_tracked_tree(tree_dict):
 
 def tracked_tree_to_dict(tree):
     """
-    Convert from TrackedTree object form to
-    nested dictionary form.
-    """
+    Helper method that converts a nested TrackedTree object to a nested dictionary.
 
+    Args:
+        tree (nested seealgo.see_tree_algo.TrackedTree): TrackedTree object form
+        to be converted to nested dictionary form
+
+    Returns:
+        The nested dictionary form of the input nested TrackedTree object.
+    """
     if not tree.children:
         return {tree.label: None}
 
@@ -77,20 +100,26 @@ def tracked_tree_to_dict(tree):
 
 def add_to_bst(bst, value):
     """
-    Add a leaf value to a binary search tree in
-    nested dictionary form.
-    """
+    Helper method that recursively adds a new leaf node with the given value
+    to its correct place in a binary search tree represented as a nested dictionary.
 
-    if not bst:  # If the tree is empty, create a new node for the value
+    Args:
+        bst (dict): the binary search tree in nested dictionary form
+        value (Any): The value to be inserted as a new node.
+
+    Returns:
+        The updated binary search tree in nested dictionary form with the specified node added.
+    """
+    if not bst:  # if the tree is empty, create a new node for the value
         return {value: {}}
 
     bst_value = int(list(bst.keys())[0])
 
-    if value < bst_value:  # If value is less than the current node, go left
+    if value < bst_value:  # if value is less than the current node, go left
         left_key = list(bst.keys())[0]
         bst[left_key] = add_to_bst(bst[left_key], value)
 
-    elif value > bst_value:  # If value is greater than the current node, go right
+    elif value > bst_value:  # if value is greater than the current node, go right
         if value > bst_value:
             right_key = list(bst.keys())[0]
         else:
@@ -102,10 +131,19 @@ def add_to_bst(bst, value):
 
 def remove_node(root, val):
     """
-    Remove val from a tree in nested
-    dictionary form.
-    """
+    Helper method that recursively removes the first node with a given value from a tree
+    in nested dictionary form.
 
+    Args:
+        root (dict): the root of the tree to remove a node from
+        val (Any): the value of the node to be removed
+
+    Returns:
+        The updated binary search tree in nested dictionary form with the specified node removed.
+
+    Raises:
+        KeyError: If the specified value is not found in the tree.
+    """
     val = str(val)
     if root is None:
         return None
@@ -117,55 +155,69 @@ def remove_node(root, val):
         for k, value in root_copy.items():
             if k == val:
                 del root[k]
+                return root
 
-            else:
-                remove_node(value, val)
+            remove_node(value, val)
 
     elif isinstance(root, list):
         for item in root:
             remove_node(item, val)
 
-    return root
+    raise KeyError(f"{val} not found in the tree")
 
 
 class TrackedTree(TreeDS):
     """
-    Tracks changes to a tree data structure.
+    Tracks changes to a TreeDS data structure and triggers creation of new visualization
+
+    Args:
+        TreeDS (seealgo.see_tree_algo.TreeDS): the tree data structure to track
     """
 
     def __init__(self, label, children=None):
+        """
+        Initializes a TrackedTree object (similar to a node) and sets the size attribute
+        to the size of the object.
+
+        Args:
+            label (str): represents the value of the TrackedTree object
+            children (:obj:`TrackedTree`, optional): child TrackedTree objects of the current
+                object. The default value is None.
+        """
         super().__init__(label, children)
         self.size = self.get_size()
-        self.newest_nodes = []
 
 
-    def add_child(self, child_val):
+    def add_child(self, val):
         """
-        Add a child leaf node to a binary
-        search tree.
-        """
+        Adds a leaf node with the specified value to the current binary search tree object.
 
-        super().insert(child_val)
+        Args:
+            val (Any): the value to be added to the binary search tree
+        """
+        super().insert(val)
         Tree.create_viz(self)
 
 
-    def remove_node(self, child):
+    def remove_node(self, to_remove):
         """
-        Remove a node and its children (if applicable)
-        from a tree.
-        """
+        Removes a node and its children (if applicable) from a binary search tree.
 
-        super().remove(child)
-        #self.children.remove(child)
+        Args:
+            to_remove (Any): value of the node to remove from the tree
+
+        Raises:
+            KeyError: if the value does not exist in the tree
+        """
+        super().remove(to_remove)
         Tree.create_viz(self)
 
 
     def check_size(self):
         """
-        Create a new visualization when
-        a change is made to the tree.
+        Checks if there has been a change in the size of the tree and creates a new visualization
+        if there has been a change.
         """
-
         if self.get_size() != self.size:
             self.size = self.get_size()
             print("Tree Changed")
@@ -174,9 +226,8 @@ class TrackedTree(TreeDS):
 
     def get_size(self):
         """
-        Calculate the size of the tree.
+        Calculates the size of the tree based on the number of nodes in the tree.
         """
-
         size = 1
         for child in self.children:
             size += child.get_size()
@@ -193,8 +244,12 @@ class Tree:
     @staticmethod
     def see(func, tree):
         """
-        Start tracking a given tree as
-        it changes throughout a given function.
+        Creates a visualization for the initial tree and starts tracking
+        the tree as it changes throughout a given function.
+
+        Args:
+            func (function): function that the tree is being altered through
+            tree (dict): tree to track in nested dictionary form
         """
         tree = nested_dict_to_tracked_tree(tree)
         Tree.create_viz(tree)
@@ -206,7 +261,10 @@ class Tree:
     @staticmethod
     def create_viz(tree):
         """
-        Render graphviz visualization.
+        Creates and renders a visualization of the tree using graphviz
+
+        Args:
+            tree (seealgo.see_tree_algo.TrackedTree): tree to create visualization of
         """
 
         di_graph = Digraph('Tree', filename=f'tree{Tree.filenum}.gv')
@@ -222,9 +280,15 @@ class Tree:
     @staticmethod
     def create_node(di_graph, tree, parent=None):
         """
-        Create a graphviz node for the given tree node.
-        """
+        Creates a visualization of a single node in a tree using Graphviz, and adds
+        it to the given directed graph.
 
+        Args:
+            di_graph (graphviz.dot.Digraph): a directed graph to add the node visualization to
+            tree (seealgo.see_tree_algo.TrackedTree): tree to create visualization of
+            parent (seealgo.see_tree_algo.TrackedTree, optional): the parent of the current node.
+                Defaults to None
+        """
         di_graph.node(str(id(tree)), label=str(tree.label))
 
         if parent is not None:
