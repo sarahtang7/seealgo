@@ -52,11 +52,11 @@ visualize appending a value to a list.
 
    visual_list.see(append_to_list, test_list)
 
-.. image:: ./../../outputFiles/eg_appendlist_before.png
+.. image:: ./../outputFiles/eg_appendlist_before.png
    :width: 500
    :alt: Initial list data structure
 
-.. image:: ./../../outputFiles/eg_appendlist_after.png
+.. image:: ./../outputFiles/eg_appendlist_after.png
    :width: 500
    :alt: List data structure with value of '5' appended
 
