@@ -140,9 +140,7 @@ def remove_node(root, val):
 
     Returns:
         The updated binary search tree in nested dictionary form with the specified node removed.
-
-    Raises:
-        KeyError: If the specified value is not found in the tree.
+        If the value is not found in the tree, this method will return the original tree.
     """
     val = str(val)
     if root is None:
@@ -155,15 +153,15 @@ def remove_node(root, val):
         for k, value in root_copy.items():
             if k == val:
                 del root[k]
-                return root
 
-            remove_node(value, val)
+            else:
+                remove_node(value, val)
 
     elif isinstance(root, list):
         for item in root:
             remove_node(item, val)
 
-    raise KeyError(f"{val} not found in the tree")
+    return root
 
 
 class TrackedTree(TreeDS):
@@ -205,9 +203,6 @@ class TrackedTree(TreeDS):
 
         Args:
             to_remove (Any): value of the node to remove from the tree
-
-        Raises:
-            KeyError: if the value does not exist in the tree
         """
         super().remove(to_remove)
         Tree.create_viz(self)
