@@ -4,10 +4,11 @@ This module contains the functionality to visualize a list
 data structure as it changes throughout a function.
 
 This involves the following classes:
-    - TrackedArray(list): detects changes made to a given list
-    data structure and triggers creation of a new visualization for each change
-    - List: uses graphviz to construct a node-edge visualization of
-    a list
+
+* `TrackedArray(list)`: detects changes made to a given list
+  data structure and triggers creation of a new visualization for each change.
+
+* `List`: uses graphviz to construct a node-edge visualization of a list.
 
 """
 

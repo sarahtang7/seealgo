@@ -4,12 +4,16 @@ This module contains the functionality to visualize a binary
 search tree data structure as nodes are inserted and removed.
 
 This involves the following classes:
-    - TreeDS: defines a custom tree data structure
-    - TrackedTree(TreeDS): detects changes made to a given TreeDS
-    data structure and triggers creation of a new visualization for each change
-    - Tree: uses graphviz to construct a node-edge visualization of the tree
+
+* `TreeDS`: defines a custom tree data structure
+
+* `TrackedTree(TreeDS)`: detects changes made to a given TreeDS data structure and
+  triggers creation of a new visualization for each change
+
+* `Tree`: uses graphviz to construct a node-edge visualization of the tree
 
 """
+
 
 from graphviz import Digraph
 
