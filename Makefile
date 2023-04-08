@@ -63,6 +63,22 @@ minor:
 major:
 	bump2version major
 
+## DOCS
+docs:
+	$(MAKE) -C docs/ clean
+	$(MAKE) -C docs/ html
+
+pages:
+	rm -rf $(TMPREPO)
+	git clone -b gh-pages https://github.com/sarahtang7/seealgo.git $(TMPREPO)
+	rm -rf $(TMPREPO)/*
+	cp -r docs/_build/html/* $(TMPREPO)
+	cd $(TMPREPO);\
+	touch .nojekyll;\
+	git add -A ;\
+	git commit -a -m 'auto-updating docs' ;\
+	git push
+
 ########
 # DIST #
 ########
