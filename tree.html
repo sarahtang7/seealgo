@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tree module &mdash; seealgo 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="List module" href="list.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            seealgo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="list.html">List module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tree module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seealgo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tree module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tree.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-seealgo.see_tree_algo">
+<span id="tree-module"></span><h1>Tree module<a class="headerlink" href="#module-seealgo.see_tree_algo" title="Permalink to this heading">¶</a></h1>
+<p>This module contains the functionality to visualize a binary
+search tree data structure as nodes are inserted and removed.</p>
+<p>This involves the following classes:</p>
+<ul class="simple">
+<li><p><cite>TreeDS</cite>: defines a custom tree data structure</p></li>
+<li><p><cite>TrackedTree(TreeDS)</cite>: detects changes made to a given TreeDS data structure and
+triggers creation of a new visualization for each change</p></li>
+<li><p><cite>Tree</cite>: uses graphviz to construct a node-edge visualization of the tree</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TrackedTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">TrackedTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TrackedTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tracks changes to a TreeDS data structure and triggers creation of new visualization</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>TreeDS (seealgo.see_tree_algo.TreeDS): the tree data structure to track</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TrackedTree.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TrackedTree.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a leaf node with the specified value to the current binary search tree object.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>val (Any): the value to be added to the binary search tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TrackedTree.check_size">
+<span class="sig-name descname"><span class="pre">check_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TrackedTree.check_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if there has been a change in the size of the tree and creates a new visualization
+if there has been a change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TrackedTree.get_size">
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TrackedTree.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the size of the tree based on the number of nodes in the tree.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TrackedTree.remove_node">
+<span class="sig-name descname"><span class="pre">remove_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_remove</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TrackedTree.remove_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a node and its children (if applicable) from a binary search tree.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>to_remove (Any): value of the node to remove from the tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.Tree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">Tree</span></span><a class="headerlink" href="#seealgo.see_tree_algo.Tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create graphviz visualization for tree data structure.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.Tree.create_node">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">di_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.Tree.create_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a visualization of a single node in a tree using Graphviz, and adds
+it to the given directed graph.</p>
+<dl>
+<dt>Args:</dt><dd><p>di_graph (graphviz.dot.Digraph): a directed graph to add the node visualization to
+tree (seealgo.see_tree_algo.TrackedTree): tree to create visualization of
+parent (seealgo.see_tree_algo.TrackedTree, optional): the parent of the current node.</p>
+<blockquote>
+<div><p>Defaults to None</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.Tree.create_viz">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_viz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.Tree.create_viz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and renders a visualization of the tree using graphviz</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (seealgo.see_tree_algo.TrackedTree): tree to create visualization of</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.Tree.see">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">see</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.Tree.see" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a visualization for the initial tree and starts tracking
+the tree as it changes throughout a given function.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>func (function): function that the tree is being altered through
+tree (dict): tree to track in nested dictionary form</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TreeDS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">TreeDS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TreeDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define a custom tree data structure.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TreeDS.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TreeDS.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts a leaf node into a binary search tree.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>child (Any): value of leaf node to be inserted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.TreeDS.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.TreeDS.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a child node from the binary search tree.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>val (Any): value of the node to be removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.add_to_bst">
+<span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">add_to_bst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.add_to_bst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method that recursively adds a new leaf node with the given value
+to its correct place in a binary search tree represented as a nested dictionary.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>bst (dict): the binary search tree in nested dictionary form
+value (Any): The value to be inserted as a new node.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The updated binary search tree in nested dictionary form with the specified node added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.nested_dict_to_tracked_tree">
+<span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">nested_dict_to_tracked_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.nested_dict_to_tracked_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method that converts a nested dictionary (the user input form of the tree)
+to a nested TrackedTree object form.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree_dict (dict): nested dictionary to be converted to TrackedTree object form</p>
+</dd>
+<dt>Returns:</dt><dd><p>The nested TrackedTree object form of the input dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.remove_node">
+<span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">remove_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.remove_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method that recursively removes the first node with a given value from a tree
+in nested dictionary form.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>root (dict): the root of the tree to remove a node from
+val (Any): the value of the node to be removed</p>
+</dd>
+<dt>Returns:</dt><dd><p>The updated binary search tree in nested dictionary form with the specified node removed.
+If the value is not found in the tree, this method will return the original tree.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="seealgo.see_tree_algo.tracked_tree_to_dict">
+<span class="sig-prename descclassname"><span class="pre">seealgo.see_tree_algo.</span></span><span class="sig-name descname"><span class="pre">tracked_tree_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#seealgo.see_tree_algo.tracked_tree_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper method that converts a nested TrackedTree object to a nested dictionary.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tree (nested seealgo.see_tree_algo.TrackedTree): TrackedTree object form
+to be converted to nested dictionary form</p>
+</dd>
+<dt>Returns:</dt><dd><p>The nested dictionary form of the input nested TrackedTree object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="list.html" class="btn btn-neutral float-left" title="List module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Sarah Tang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
