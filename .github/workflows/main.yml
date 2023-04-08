@@ -38,7 +38,7 @@ jobs:
       
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint $(find seealgo -name '*.py')
       
     - name: Test
       run: |

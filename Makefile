@@ -15,8 +15,8 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with black
-	python -m black --check seealgo setup.py
-	python -m flake8 seealgo setup.py
+	python -m black --check seealgo
+	python -m flake8 seealgo
 
 # Alias
 lints: lint
