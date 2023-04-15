@@ -11,6 +11,11 @@ A Python library to visualize a data structure as it changes throughout a functi
 ## Overview
 When writing algorithms, I often find that visualizing the data structures are necessary, but it can be difficult and time-consuming to do so. The goal of the seealgo library is to allow users to visualize a given data structure as it changes in a given function.
 
+So far, the seealgo library provides visualization for the following data structures and methods:
+- List: `append(value)`, `insert(index, value)`, `remove(value)`, `__setitem__(index, value)`
+- Binary Search Tree (provided as a nested dictionary): `insert(child)`, `remove(value)` 
+- Set: `add(value)`, `remove(value)`, `clear()`, `update(values)`
+
 ## Installation
 This library requires you to have `graphviz` installed on your system using the [instructions](https://graphviz.org/download/) appropriate for your system, or by using the following command if you are on a macOS device: 
 ```
