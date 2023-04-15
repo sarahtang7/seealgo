@@ -1,0 +1,13 @@
+digraph Set {
+	rankdir=LR
+	subgraph cluster_Set {
+		node [color=white style=filled]
+		label=Set
+		style=filled
+		color=lightgrey
+		2 [label=2]
+		4 [label=4]
+		6 [label=6]
+		8 [label=8]
+	}
+}
