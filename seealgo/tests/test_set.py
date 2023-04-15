@@ -20,7 +20,7 @@ def test_initset():
     with open('set1.gv', 'r', encoding='utf-8') as file:
         viz_contents = file.read()
 
-    with open('./../../outputFiles/initSetOutput.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/initSetOutput.txt', 'r', encoding='utf-8') as true_file:
         true_contents = true_file.read()
 
     assert viz_contents == true_contents
@@ -46,9 +46,9 @@ def test_addtoset():
     with open('set3.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('./../../outputFiles/addSetOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/addSetOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('./../../outputFiles/addSetOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/addSetOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert viz_contents1 == true_contents1
@@ -75,9 +75,9 @@ def test_removefromset():
     with open('set5.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('./../../outputFiles/removeSetOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/removeSetOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('./../../outputFiles/removeSetOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/removeSetOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert viz_contents1 == true_contents1
@@ -103,9 +103,9 @@ def test_clearset():
     with open('set7.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('./../../outputFiles/clearSetOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/clearSetOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('./../../outputFiles/clearSetOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/clearSetOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert viz_contents1 == true_contents1
@@ -132,9 +132,9 @@ def test_updateset():
     with open('set9.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('./../../outputFiles/updateSetOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/updateSetOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('./../../outputFiles/updateSetOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/updateSetOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert viz_contents1 == true_contents1
