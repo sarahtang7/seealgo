@@ -67,3 +67,4 @@ visualize appending a value to a list.
 
    list
    tree
+   set
