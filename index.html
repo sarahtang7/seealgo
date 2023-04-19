@@ -75,8 +75,14 @@
   <section id="welcome-to-seealgo-s-documentation">
 <h1>Welcome to seealgo’s documentation!<a class="headerlink" href="#welcome-to-seealgo-s-documentation" title="Permalink to this heading">¶</a></h1>
 <p>seealgo is a Python library designed to help you visualize a data structure as it
-changes throughout a function. Currently, seealgo provides functionality for lists
-and binary search trees.</p>
+changes throughout a function.</p>
+<p>So far, the seealgo library provides visualization for the following data structures and methods:
+  <ul>
+    <li>List: <code>append(value)</code>, <code>insert(index, value)</code>, <code>remove(value)</code>, <code>__setitem__(index, value)</code></li>
+    <li>Binary Search Tree (provided as a nested dictionary): <code>insert(child)</code>, <code>remove(value)</code></li>
+    <li>Set: <code>add(value)</code>, <code>remove(value)</code>, <code>clear()</code>, <code>update(values)</code></li>
+  </ul>
+</p>
 <div class="toctree-wrapper compound">
 </div>
 <section id="installation">
@@ -93,8 +99,8 @@ appropriate for your system, or by using the following command if you are on a m
 </section>
 <section id="using-seealgo">
 <h2>Using seealgo<a class="headerlink" href="#using-seealgo" title="Permalink to this heading">¶</a></h2>
-<p>The following is an example of using the seealgo library to
-visualize appending a value to a list.</p>
+<p><b>The following is an example of using the seealgo library to
+visualize appending a value to a list.</b></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">seealgo</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="n">visual_list</span> <span class="o">=</span> <span class="n">List</span><span class="p">()</span>
@@ -107,8 +113,51 @@ visualize appending a value to a list.</p>
 <span class="n">visual_list</span><span class="o">.</span><span class="n">see</span><span class="p">(</span><span class="n">append_to_list</span><span class="p">,</span> <span class="n">test_list</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/eg_appendlist_before.png"><img alt="Initial list data structure" src="_images/eg_appendlist_before.png" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="_images/eg_appendlist_after.png"><img alt="List data structure with value of '5' appended" src="_images/eg_appendlist_after.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="_images/eg_appendlist_before.png"><img alt="Initial list data structure" src="_images/eg_appendlist_before.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/eg_appendlist_after.png"><img alt="List data structure with value of '5' appended" src="_images/eg_appendlist_after.png" style="width: 400px;" /></a>
+<hr>
+<p><b>The following is an example of using the seealgo library to
+  visualize adding a leaf node to a binary search tree.</b></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">seealgo</span> <span class="kn">import</span> <span class="n">Tree</span>
+
+<span class="n">visual_tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">()</span>
+<span class="n">test_tree</span> <span class="o">=</span> {
+  <span class="s1">'8'</span>: {
+    <span class="s1">'3'</span>: {
+      <span class="s1">'1'</span>: <span class="kc">null</span>,
+      <span class="s1">'6'</span>: <span class="kc">null</span>
+      },
+    <span class="s1">'10'</span>: <span class="kc">null</span>
+  }
+}
+
+<span class="k">def</span> <span class="nf">insert_func</span><span class="p">(</span><span class="n">init_tree</span><span class="p">):</span>
+  <span class="n">init_tree</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">init_tree</span>
+
+<span class="n">visual_tree</span><span class="o">.</span><span class="n">see</span><span class="p">(</span><span class="n">insert_func</span><span class="p">,</span> <span class="n">test_tree</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/eg_appendtree_before.png"><img alt="Initial tree data structure" src="_images/eg_appendtree_before.png" style="width: 200px;" /></a>
+<a class="reference internal image-reference" href="_images/eg_appendtree_after.png"><img alt="Tree data structure with leaf node of '2' appended" src="_images/eg_appendtree_after.png" style="width: 200px;" /></a>
+<hr>
+<p><b>The following is an example of using the seealgo library to
+  visualize adding a new value to a set.</b></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">seealgo</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="n">visual_set</span> <span class="o">=</span> <span class="n">Set</span><span class="p">()</span>
+<span class="n">test_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">227</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">add_func</span><span class="p">(</span><span class="n">user_set</span><span class="p">):</span>
+  <span class="n">user_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">353</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">user_set</span>
+
+<span class="n">visual_set</span><span class="o">.</span><span class="n">see</span><span class="p">(</span><span class="n">add_func</span><span class="p">,</span> <span class="n">test_set</span><span class="p">)</span>
+</pre></div></div>
+<a class="reference internal image-reference" href="_images/eg_appendset_before.png"><img alt="Initial set data structure" src="_images/eg_appendset_before.png" style="width: 150px;" /></a>
+<a class="reference internal image-reference" href="_images/eg_appendset_after.png"><img alt="Set data structure with '353' added" src="_images/eg_appendset_after.png" style="width: 150px;" /></a>
+
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
 <ul>
