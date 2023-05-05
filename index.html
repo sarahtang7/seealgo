@@ -46,6 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="list.html">List module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree.html">Tree module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="set.html">Set module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Dictionary module</a></li>
 </ul>
 
         </div>
@@ -81,6 +82,7 @@ changes throughout a function.</p>
     <li>List: <code>append(value)</code>, <code>insert(index, value)</code>, <code>remove(value)</code>, <code>__setitem__(index, value)</code></li>
     <li>Binary Search Tree (provided as a nested dictionary): <code>insert(child)</code>, <code>remove(value)</code></li>
     <li>Set: <code>add(value)</code>, <code>remove(value)</code>, <code>clear()</code>, <code>update(values)</code></li>
+    <li>Dictionary (nested and non-nested)<code>update(iterable)</code>, <code>pop(key)</code>: </li>
   </ul>
 </p>
 <div class="toctree-wrapper compound">
@@ -158,12 +160,32 @@ visualize appending a value to a list.</b></p>
 <a class="reference internal image-reference" href="_images/eg_appendset_before.png"><img alt="Initial set data structure" src="_images/eg_appendset_before.png" style="width: 150px;" /></a>
 <a class="reference internal image-reference" href="_images/eg_appendset_after.png"><img alt="Set data structure with '353' added" src="_images/eg_appendset_after.png" style="width: 150px;" /></a>
 
+<hr>
+<p><b>The following is an example of using the seealgo library to
+  visualize adding new key-value pairs to a dictionary.</b></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">seealgo</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="n">visual_dict</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">()</span>
+<span class="n">test_dict_head</span> <span class="o">=</span> <span class="p">{</span><span class="mi">'1': 1</span><span class="p">,</span> <span class="mi">'2': 4</span><span class="p">,</span> <span class="mi">'3': 9</span><span class="p">,</span> <span class="mi">'4': 16</span><span class="p">}</span>
+<span class="n">test_dict_tail</span> <span class="o">=</span> <span class="p">{</span><span class="mi">'5': 25</span><span class="p">,</span> <span class="mi">'6': 36</span><span class="p">,</span> <span class="mi">'7': 49</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">update_func</span><span class="p">(</span><span class="n">user_dict</span><span class="p">):</span>
+  <span class="n">user_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">test_dict_tail</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">user_dict</span>
+
+<span class="n">visual_dict</span><span class="o">.</span><span class="n">see</span><span class="p">(</span><span class="n">update_func</span><span class="p">,</span> <span class="n">test_dict_head</span><span class="p">)</span>
+</pre></div></div>
+<a class="reference internal image-reference" href="_images/eg_appenddict_before.png"><img alt="Initial dictionary data structure" src="_images/eg_appenddict_before.png" style="width: 150px;" /></a>
+<a class="reference internal image-reference" href="_images/eg_appenddict_after.png"><img alt="Dictionary data structure with test_dict_tail added" src="_images/eg_appenddict_after.png" style="width: 150px;" /></a>
+
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="list.html">List module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tree.html">Tree module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="set.html">Set module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dict.html">Dictionary module</a></li>
 </ul>
 </div>
 </section>
