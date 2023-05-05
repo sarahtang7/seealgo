@@ -1,0 +1,13 @@
+digraph Dict {
+	rankdir=LR
+	subgraph cluster_Dict {
+		node [color=white style=filled]
+		label=Dictionary
+		style=filled
+		color=lightgrey
+		1 [label="1: 1"]
+		2 [label="2: 4"]
+		3 [label="3: 9"]
+		4 [label="4: 16"]
+	}
+}
