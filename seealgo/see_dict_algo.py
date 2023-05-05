@@ -95,7 +95,6 @@ class Dict:
 
             # Create nodes for each key-value pair in the dictionary
             for k, val in data.items():
-
                 if isinstance(val, dict):  # if value is a nested dictionary
                     subgraph.node(str(k), label=str(k), shape='rectangle',
                                   style='filled', color='lightblue2')
