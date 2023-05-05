@@ -8,6 +8,7 @@ from seealgo import Dict
 
 ### UNIT TESTS
 
+
 def test_initdict():
     """
     Test the visualization of an unchanged dictionary.

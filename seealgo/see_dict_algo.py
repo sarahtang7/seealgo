@@ -104,6 +104,7 @@ class Dict:
                         if nested_k in keys:
                             subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}",
                                           style='filled', color='green')
+
                         else:
                             subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}")
                         # Add an edge from parent node to child node
