@@ -85,13 +85,18 @@ class Dict:
             # Create nodes for each key-value pair in the dictionary
             for k, val in data.items():
                 if isinstance(val, dict):  # if value is a nested dictionary
-                    subgraph.node(str(k), label=str(k), shape='rectangle',
-                                  style='filled', color='lightblue2')
+                    subgraph.node(str(k),
+                                  label=str(k),
+                                  shape='rectangle',
+                                  style='filled',
+                                  color='lightblue2',)
 
                     for nested_k, nested_v in val.items():
                         if nested_k in keys:
-                            subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}",
-                                          style='filled', color='green')
+                            subgraph.node(str(nested_k),
+                                          label=f"{str(nested_k)}: {str(nested_v)}",
+                                          style='filled',
+                                          color='green',)
 
                         else:
                             subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}")
@@ -102,8 +107,10 @@ class Dict:
                 else:  # if value is not a nested dictionary
 
                     if k in keys:
-                        subgraph.node(str(k), label=f"{str(k)}: {str(val)}",
-                                      style='filled', color='green')
+                        subgraph.node(str(k),
+                                      label=f"{str(k)}: {str(val)}",
+                                      style='filled',
+                                      color='green',)
                     else:
                         subgraph.node(str(k), label=f"{str(k)}: {str(val)}")
 
