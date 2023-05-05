@@ -13,7 +13,6 @@ This involves the following classes:
 """
 
 from graphviz import Digraph
-import webbrowser
 
 class TrackedDict(dict):
     """
@@ -72,7 +71,7 @@ class Dict:
             func(data)
 
 
-    def create_viz(self, data, keys={}):
+    def create_viz(self, data, keys=None):
         """
         Creates and renders a visualization of the dictionary using graphviz
 
@@ -80,6 +79,9 @@ class Dict:
             data (dict): dictionary that is being visualized
             key (iterable): optional list of keys of new key-value pairs
         """
+
+        if keys is None:
+            keys = {}
 
         di_graph = Digraph('Dict', filename=f'dict{Dict.filenum}.gv')
         Dict.filenum += 1
@@ -92,14 +94,16 @@ class Dict:
             subgraph.node_attr.update(style='filled', color='white')
 
             # Create nodes for each key-value pair in the dictionary
-            for k, v in data.items():
+            for k, val in data.items():
 
-                if isinstance(v, dict):  # if value is a nested dictionary
-                    subgraph.node(str(k), label=str(k), shape='rectangle', style='filled', color='lightblue2')
+                if isinstance(val, dict):  # if value is a nested dictionary
+                    subgraph.node(str(k), label=str(k), shape='rectangle',
+                                  style='filled', color='lightblue2')
 
-                    for nested_k, nested_v in v.items():
+                    for nested_k, nested_v in val.items():
                         if nested_k in keys:
-                            subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}", style='filled', color='green')
+                            subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}",
+                                          style='filled', color='green')
                         else:
                             subgraph.node(str(nested_k), label=f"{str(nested_k)}: {str(nested_v)}")
                         # Add an edge from parent node to child node
@@ -108,9 +112,10 @@ class Dict:
                 else:  # if value is not a nested dictionary
 
                     if k in keys:
-                        subgraph.node(str(k), label=f"{str(k)}: {str(v)}", style='filled', color='green')
+                        subgraph.node(str(k), label=f"{str(k)}: {str(val)}",
+                                      style='filled', color='green')
                     else:
-                        subgraph.node(str(k), label=f"{str(k)}: {str(v)}")
+                        subgraph.node(str(k), label=f"{str(k)}: {str(val)}")
 
         # Render the graph to a file
         di_graph.view()

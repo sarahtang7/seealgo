@@ -20,7 +20,7 @@ def test_initdict():
     with open('dict1.gv', 'r', encoding='utf-8') as file:
         viz_contents = file.read()
 
-    with open('../../outputFiles/initDictOutput.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/initDictOutput.txt', 'r', encoding='utf-8') as true_file:
         true_contents = true_file.read()
 
     assert viz_contents == true_contents
@@ -38,13 +38,13 @@ def test_nesteddict():
             'nested_key2': 'nested_value2'
         }
     }
-    vizN = Dict()
-    vizN.see(None, nested_dict)
+    viz_nested = Dict()
+    viz_nested.see(None, nested_dict)
 
     with open('dict2.gv', 'r', encoding='utf-8') as file:
         viz_contents = file.read()
 
-    with open('../../outputFiles/nestedDictOutput.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/nestedDictOutput.txt', 'r', encoding='utf-8') as true_file:
         true_contents = true_file.read()
 
     assert viz_contents == true_contents
@@ -71,9 +71,9 @@ def test_updatedict():
     with open('dict4.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('../../outputFiles/updateDictOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/updateDictOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('../../outputFiles/updateDictOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/updateDictOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert viz_contents1 == true_contents1
@@ -100,9 +100,9 @@ def test_popfromdict():
     with open('dict6.gv', 'r', encoding='utf-8') as file:
         viz_contents2 = file.read()
 
-    with open('../../outputFiles/popDictOutput1.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/popDictOutput1.txt', 'r', encoding='utf-8') as true_file:
         true_contents1 = true_file.read()
-    with open('../../outputFiles/popDictOutput2.txt', 'r', encoding='utf-8') as true_file:
+    with open('outputFiles/popDictOutput2.txt', 'r', encoding='utf-8') as true_file:
         true_contents2 = true_file.read()
 
     assert viz_contents1 == true_contents1
