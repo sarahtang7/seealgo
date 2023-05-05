@@ -133,7 +133,8 @@ class List:
         for i, val in enumerate(data):
             node_style = 'filled' if i == index else ''
             node_fillcolor = 'green' if i == index else ''
-            di_graph.node(str(i), label=str(val), style=node_style, fillcolor=node_fillcolor)
+            label = f"[{i}]\n\n{val}"
+            di_graph.node(str(i), label=label, style=node_style, fillcolor=node_fillcolor)
 
         # Create edges between adjacent nodes
         for i in range(len(data) - 1):
