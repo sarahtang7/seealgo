@@ -15,6 +15,7 @@ So far, the seealgo library provides visualization for the following data struct
 - List: `append(value)`, `insert(index, value)`, `remove(value)`, `__setitem__(index, value)`
 - Binary Search Tree (provided as a nested dictionary): `insert(child)`, `remove(value)` 
 - Set: `add(value)`, `remove(value)`, `clear()`, `update(values)`
+- Dictionary (nested and non-nested): `update(iterable)`, `pop(key)`
 
 ## Installation
 This library requires you to have `graphviz` installed on your system using the [instructions](https://graphviz.org/download/) appropriate for your system, or by using the following command if you are on a macOS device: 
@@ -27,6 +28,8 @@ pip install seealgo
 ```
 
 ## Using seealgo
+(for examples of all data structures available with seealgo, visit our [GitHub Pages](https://sarahtang7.github.io/seealgo/)!)
+
 This is an example of using the List module to visualize appending 5 to a list:
 
 ```python
