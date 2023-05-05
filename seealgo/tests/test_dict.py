@@ -36,8 +36,8 @@ def test_nesteddict():
         'key1': 'value1',
         'key2': {
             'nested_key1': 'nested_value1',
-            'nested_key2': 'nested_value2'
-        }
+            'nested_key2': 'nested_value2',
+        },
     }
     viz_nested = Dict()
     viz_nested.see(None, nested_dict)
