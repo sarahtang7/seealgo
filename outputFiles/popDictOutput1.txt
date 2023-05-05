@@ -1,0 +1,13 @@
+digraph Dict {
+	rankdir=LR
+	subgraph cluster_Dict {
+		node [color=white style=filled]
+		label=Dictionary
+		style=filled
+		color=lightgrey
+		apple [label="apple: red"]
+		banana [label="banana: yellow"]
+		goldfish [label="goldfish: gold"]
+		kiwi [label="kiwi: green"]
+	}
+}
